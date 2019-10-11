@@ -45,7 +45,7 @@
 
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>livy-core_${scala.binary.version}</artifactId>
+      <artifactId>livy-core</artifactId>
       <version>${project.version}</version>
     </dependency>
 

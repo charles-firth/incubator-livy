@@ -41,7 +41,7 @@
 
     <dependency>
       <groupId>org.apache.livy</groupId>
-      <artifactId>livy-core_${scala.binary.version}</artifactId>
+      <artifactId>livy-core</artifactId>
       <version>${project.version}</version>
       <exclusions>
         <!-- Provided and shaded by livy-rsc already. -->
@@ -54,7 +54,7 @@
 
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>livy-core_${scala.binary.version}</artifactId>
+      <artifactId>livy-core</artifactId>
       <version>${project.version}</version>
       <type>test-jar</type>
       <scope>test</scope>

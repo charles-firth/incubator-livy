@@ -57,13 +57,13 @@
     </dependency>
     <dependency>
       <groupId>org.apache.livy</groupId>
-      <artifactId>livy-core_${scala.binary.version}</artifactId>
+      <artifactId>livy-core</artifactId>
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.livy</groupId>
-      <artifactId>livy-core_${scala.binary.version}</artifactId>
+      <artifactId>livy-core</artifactId>
       <version>${project.version}</version>
       <type>test-jar</type>
       <scope>test</scope>

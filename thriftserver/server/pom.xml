@@ -70,7 +70,7 @@
     </dependency>
     <dependency>
       <groupId>org.apache.livy</groupId>
-      <artifactId>livy-core_${scala.binary.version}</artifactId>
+      <artifactId>livy-core</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
