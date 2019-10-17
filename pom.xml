@@ -1055,7 +1055,11 @@
         <scala.version>${scala-2.12.version}</scala.version>
         <scala.binary.version>2.12</scala.binary.version>
         <spark.version>${spark.scala-2.12.version}</spark.version>
+<<<<<<< HEAD
         <netty.version>${netty.spark-2.11.version}</netty.version>
+=======
+        <netty.version>${netty.spark-2.12.version}</netty.version>
+>>>>>>> fe80cb1... [Scala 2.12] Add scala 2.12 support
         <scalatest.version>3.0.8</scalatest.version>
         <scalatra.version>2.6.5</scalatra.version>
         <java.version>1.8</java.version>
