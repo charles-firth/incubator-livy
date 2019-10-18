@@ -282,9 +282,12 @@ public class RSCDriver extends BaseProtocol {
    * @return The initalized SparkContext
    */
   protected SparkEntries initializeSparkEntries() throws Exception {
+    LOG.info("Does it work ? with conf {}", conf);
     SparkEntries entries = new SparkEntries(conf);
     // Explicitly call sc() to initialize SparkContext.
-    entries.sc();
+    entries.sc().getConf();
+    LOG.info("Does it work ?");
+    LOG.info("Start time {}", entries.sc().startTime());
     return entries;
   }
 
@@ -330,8 +333,11 @@ public class RSCDriver extends BaseProtocol {
     try {
       initializeServer();
 
+      LOG.info("Getting SparkEntries 123");
       SparkEntries entries = initializeSparkEntries();
+      LOG.info("SparkEntries = {}", entries);
       synchronized (jcLock) {
+        LOG.info("Setting JC");
         jc = new JobContextImpl(entries, localTmpDir, this);
         jcLock.notifyAll();
       }
@@ -358,6 +364,7 @@ public class RSCDriver extends BaseProtocol {
   }
 
   public void submit(JobWrapper<?> job) {
+    LOG.info("what is jc now {}", jc);
     if (jc != null) {
       job.submit(executor);
       return;

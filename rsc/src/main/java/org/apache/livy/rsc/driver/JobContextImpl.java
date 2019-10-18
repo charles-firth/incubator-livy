@@ -27,12 +27,15 @@ import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.hive.HiveContext;
 import org.apache.spark.streaming.Duration;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.livy.JobContext;
 import org.apache.livy.rsc.RSCConf;
 import org.apache.livy.rsc.Utils;
 
 class JobContextImpl implements JobContext {
+  private static final Logger LOG = LoggerFactory.getLogger(JobContextImpl.class);
 
   private final File localTmpDir;
   private volatile JavaStreamingContext streamingctx;
@@ -43,6 +46,7 @@ class JobContextImpl implements JobContext {
   private final LinkedHashMap<String, Object> sharedVariables;
 
   public JobContextImpl(SparkEntries sparkEntries, File localTmpDir, RSCDriver driver) {
+    LOG.info("Creating JC , and sparkEntries = {}", sparkEntries);
     this.sparkEntries = sparkEntries;
 
     this.localTmpDir = localTmpDir;

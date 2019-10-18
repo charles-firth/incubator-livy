@@ -45,6 +45,7 @@ public class SparkEntries {
   }
 
   public JavaSparkContext sc() {
+    LOG.info("sc = {}", sc);
     if (sc == null) {
       synchronized (this) {
         if (sc == null) {
@@ -57,6 +58,7 @@ public class SparkEntries {
         }
       }
     }
+    LOG.info("sc conf = {}", sc.getConf());
     return sc;
   }
 

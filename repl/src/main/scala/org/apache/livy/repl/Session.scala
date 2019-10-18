@@ -88,6 +88,7 @@ class Session(
 
   private def sc: SparkContext = {
     require(entries != null)
+    warn(s"checking entries.sc() = ${entries.sc().getConf}")
     entries.sc().sc
   }
 

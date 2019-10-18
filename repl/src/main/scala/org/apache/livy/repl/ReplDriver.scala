@@ -38,9 +38,11 @@ class ReplDriver(conf: SparkConf, livyConf: RSCConf)
   private[repl] var session: Session = _
 
   override protected def initializeSparkEntries(): SparkEntries = {
+    warn("starting initializeSparkEntries in ReplDriver")
     session = new Session(livyConf = livyConf,
       sparkConf = conf,
       stateChangedCallback = { s => broadcast(new ReplState(s.toString)) })
+    warn("waiting for session to be starts in ReplDriver")
     Await.result(session.start(), Duration.Inf)
   }
 
