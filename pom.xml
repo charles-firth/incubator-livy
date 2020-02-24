@@ -22,7 +22,7 @@
 
   <groupId>org.apache.livy</groupId>
   <artifactId>livy-main</artifactId>
-  <version>0.7.0-incubating-SNAPSHOT</version>
+  <version>0.8.0-incubating-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Livy Project Parent POM</name>
   <description>Livy Project</description>
@@ -120,6 +120,13 @@
 
     <!-- Set this to "true" to skip PySpark3 tests. -->
     <skipPySpark3Tests>false</skipPySpark3Tests>
+
+    <!-- Required for testing LDAP integration -->
+    <apacheds.version>2.0.0-M21</apacheds.version>
+    <ldap-api.version>1.0.0-M33</ldap-api.version>
+
+    <curator.version>2.7.1</curator.version>
+    <zookeeper.version>3.4.6</zookeeper.version>
 
     <!--
       Properties for the copyright header style checks. Modules that use the ASF header
@@ -1093,6 +1100,8 @@
               <thirdPartyFilename>THIRD-PARTY</thirdPartyFilename>
               <sortArtifactByName>true</sortArtifactByName>
               <fileTemplate>${execution.root}/dev/third-party-file.ftl</fileTemplate>
+              <useMissingFile>true</useMissingFile>
+              <missingFile>${execution.root}/dev/third-party-missing-license.properties</missingFile>
             </configuration>
             <executions>
               <execution>
